@@ -18,7 +18,7 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount(){
-    //the user parameter is the user state of the auth on our firebase project i.e user state of firebase.auth()
+    //the userAuth parameter is the user state of the auth on our firebase project i.e user state of firebase.auth()
    //this.unsubscribeFromAuth recieves a function if user logouts
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth=>{
       if(userAuth){
@@ -39,8 +39,9 @@ class App extends React.Component {
       }
       else{
         this.setState({currentUser: userAuth});
+        console.log(userAuth,'user state')
       }
-      console.log(userAuth,'user state')
+      
     })
   }
 
